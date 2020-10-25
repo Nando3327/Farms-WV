@@ -73,7 +73,7 @@
   "pounds": {
     "name": "Pond name",
     "size": "Pond size",
-    "farmSize": "Size in Pond",
+    "farmSize": "Size in hectares",
     "farmName": "Farm name",
     "namePh": "Enter the name of the pond",
     "sizePh": "Enter the size of the pond",
