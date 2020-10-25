@@ -1,0 +1,94 @@
+{
+  "welcome": "Welcome",
+  "global": {
+    "errors": {
+      "genericErrorMessage": "Technical errors occurred, please try again later",
+      "fieldsRequired": "Please complete the required fields to continue"
+    },
+    "buttons": {
+      "search": "Search",
+      "edit": "Edit",
+      "delete": "Delete",
+      "details": "Details",
+      "actions": "Actions",
+      "submit": "Save",
+      "return": "Return",
+      "accept": "Accept",
+      "cancel": "Cancel"
+    },
+    "spinner": {
+      "loading": "Loading"
+    },
+    "dialog": {
+      "dearUser": "Dear user"
+    }
+  },
+  "table": {
+    "search": {
+      "placeholder": "Search",
+      "hint": "Filter between table columns."
+    },
+    "export": {
+      "print": "Print",
+      "pdf": "PDF",
+      "excel": "Excel",
+      "txt": "Text"
+    },
+    "paginator": {
+      "ITEMS_PER_PAGE": "",
+      "NEXT_PAGE": "",
+      "PREVIOUS_PAGE": "",
+      "RANGE": ""
+    },
+    "msg": {
+      "noRecordsFound": "No records found."
+    }
+  },
+  "grid": {
+    "ITEMS_PER_PAGE_LABEL": "Number of rows:",
+    "NEXT_PAGE_LABEL": "Next page",
+    "PREVIOUS_PAGE_LABEL": "Previous page",
+    "FIRST_PAGE_LABEL": "First page",
+    "LAST_PAGE_LABEL": "Last page",
+    "RANGE_PAGE_LABEL_1": "0 of {{length}}",
+    "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} of {{length}}"
+  },
+  "farm": {
+    "name": "Farm name",
+    "namePh": "Enter the name of the farm",
+    "table": {
+      "tittle": "Farms",
+      "name": "Farm name",
+      "newFarm": "New farm"
+    },
+    "messages": {
+      "poundsWithFarm": "There are ponds associated with your farm. Do you want to delete them anyway?",
+      "deleteConfirm": "Are you sure you want to delete the selected record?",
+      "farmDeleted": "The selected farm was deleted",
+      "farmCreated": "Farm saved successfully",
+      "farmDuplicate": "Farm name already exists",
+      "farmGenericErrorCreateUpdate": "The record could not be saved"
+    }
+  },
+  "pounds": {
+    "name": "Pond name",
+    "size": "Pond size",
+    "farmSize": "Size in Pond",
+    "farmName": "Farm name",
+    "namePh": "Enter the name of the pond",
+    "sizePh": "Enter the size of the pond",
+    "table": {
+      "tittle": "Pond",
+      "name": "Pond name",
+      "size": "Pond size",
+      "newFarm": "New pond"
+    },
+    "messages": {
+      "farmDeleted": "The selected pond was deleted",
+      "deleteConfirm": "Are you sure you want to delete the selected record?",
+      "farmCreated": "Pond saved successfully",
+      "farmDuplicate": "The name of the pond already exists",
+      "farmGenericErrorCreateUpdate": "The record could not be saved"
+    }
+  }
+}

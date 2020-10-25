@@ -1,0 +1,20 @@
+.mat-column-detail {
+    flex: 0 0 15px;
+    padding: 0 !important;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1 !important;
+
+    mat-icon {
+        margin-top: 8px;
+    }
+}
+
+.data-table-align-right {
+    justify-content: flex-end;
+}
+
+.data-table-mat-cell {
+    word-break: break-all;
+}

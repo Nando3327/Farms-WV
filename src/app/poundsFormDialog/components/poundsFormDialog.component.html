@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-sm-12">
+    <form [formGroup]="form">
+      <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+    </form>
+  </div>
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-sm-6 text-right">
+        <button (click)="back()" type="submit" class="btn btn-secondary">{{globalLabels.buttons.return}}</button>
+      </div>
+      <div class="col-sm-6">
+        <button class="btn btn-primary" (click)="submitPound()">{{globalLabels.buttons.submit}}</button>
+      </div>
+    </div>
+  </div>
+</div>

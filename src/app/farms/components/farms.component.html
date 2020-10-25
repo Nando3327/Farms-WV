@@ -1,0 +1,25 @@
+<div class="row" *ngIf="showTable">
+  <div class="col-sm-12">
+    <app-data-table [tableData]="data" [tableOptions]="tableOptions"></app-data-table>
+  </div>
+</div>
+<div *ngIf="!showTable" class="row">
+  <div class="col-sm-12">
+    <form [formGroup]="form">
+      <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+    </form>
+  </div>
+</div>
+<app-pounds *ngIf="!showTable && mode === 'edit'" [config]="poundsConfig"></app-pounds>
+<div class="row" *ngIf="!showTable">
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-sm-6 text-right">
+        <button (click)="back()" type="submit" class="btn btn-secondary">{{globalLabels.buttons.return}}</button>
+      </div>
+      <div class="col-sm-6">
+        <button class="btn btn-primary" (click)="submitFarm()">{{globalLabels.buttons.submit}}</button>
+      </div>
+    </div>
+  </div>
+</div>

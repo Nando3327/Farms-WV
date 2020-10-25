@@ -1,0 +1,94 @@
+{
+  "welcome": "Bienvenido",
+  "global": {
+    "errors": {
+      "genericErrorMessage": "Ocurrieron errores técnicos, por favor intente mas tarde",
+      "fieldsRequired": "Por favor complete los campos obligatorios para continuar"
+    },
+    "buttons": {
+      "search": "Buscar",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "details": "Detalles",
+      "actions": "Acciones",
+      "submit": "Guardar",
+      "return": "Regresar",
+      "accept": "Aceptar",
+      "cancel": "Cancelar"
+    },
+    "spinner": {
+      "loading": "Cargando"
+    },
+    "dialog": {
+      "dearUser": "Estimado usuario"
+    }
+  },
+  "table": {
+    "search": {
+      "placeholder": "Buscar",
+      "hint": "Fitra entre las columnas de la tabla."
+    },
+    "export": {
+      "print": "Imprimir",
+      "pdf": "PDF",
+      "excel": "Excel",
+      "txt": "Texto"
+    },
+    "paginator": {
+      "ITEMS_PER_PAGE": "",
+      "NEXT_PAGE": "",
+      "PREVIOUS_PAGE": "",
+      "RANGE": ""
+    },
+    "msg": {
+      "noRecordsFound": "No se encontraron registros."
+    }
+  },
+  "grid": {
+    "ITEMS_PER_PAGE_LABEL": "Número de filas:",
+    "NEXT_PAGE_LABEL": "Página siguiente",
+    "PREVIOUS_PAGE_LABEL": "Página anterior",
+    "FIRST_PAGE_LABEL": "Primera página",
+    "LAST_PAGE_LABEL": "Ultima pagina",
+    "RANGE_PAGE_LABEL_1": "0 de {{length}}",
+    "RANGE_PAGE_LABEL_2": "{{startIndex}} - {{endIndex}} de {{length}}"
+  },
+  "farm": {
+    "name": "Nombre de la granja",
+    "namePh": "Ingrese el nombre de la granja",
+    "table": {
+      "tittle": "Granjas",
+      "name": "Nombre de la granja",
+      "newFarm": "Nueva granja"
+    },
+    "messages": {
+      "poundsWithFarm": "Existen hectareas asociadas a su granja. Desea eliminarlas dee todos modos?",
+      "deleteConfirm": "Esta seguro que desea eliminar el registro seleccionado?",
+      "farmDeleted": "Se elimino la granja seleccionada",
+      "farmCreated": "Granja guardada exitosamente",
+      "farmDuplicate": "El nombre de la granja ya existe",
+      "farmGenericErrorCreateUpdate": "No se pudo guardar el registro"
+    }
+  },
+  "pounds": {
+    "name": "Nombre de la hectarea",
+    "size": "Tamaño de la hectarea",
+    "farmSize": "Tamaño en hectareas",
+    "farmName": "Nombre de la granja",
+    "namePh": "Ingrese el nombre de la hectarea",
+    "sizePh": "Ingrese el tamaño de la hectarea",
+    "table": {
+      "tittle": "Hecareas",
+      "name": "Nombre de la hectarea",
+      "size": "Tamaño de la hectarea",
+      "newFarm": "Nueva hectarea"
+    },
+    "messages": {
+      "farmDeleted": "Se elimino la hectarea seleccionada",
+      "deleteConfirm": "Esta seguro que desea eliminar el registro seleccionado?",
+      "farmCreated": "hectarea guardada exitosamente",
+      "farmDuplicate": "El nombre de la hectarea ya existe",
+      "farmGenericErrorCreateUpdate": "No se pudo guardar el registro"
+    }
+  }
+}

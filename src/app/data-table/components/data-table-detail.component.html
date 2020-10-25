@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col text-right">
+      <mat-icon [mat-dialog-close]="true">close</mat-icon>
+    </div>
+</div>
+<div *ngFor="let item of columns">
+  <div class="row">
+    <div class="col">
+      <strong>{{ item.name }}:</strong>
+    </div>
+    <div class="col text-right">
+      <app-data-cell [row]="row" [column]="item" [mode]="'detail'"></app-data-cell>
+    </div>
+  </div>
+  <div class="kt-separator kt-separator--dashed my-2"></div>
+</div>

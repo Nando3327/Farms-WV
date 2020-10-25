@@ -1,0 +1,21 @@
+<div class="row dataShow" *ngIf="showTable">
+  <div class="col-sm-6" *ngIf="!config.showActions">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">{{labels.farmName}}</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Default" [(ngModel)]="name" readonly aria-describedby="inputGroup-sizing-default">
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">{{labels.farmSize}}</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Default" [(ngModel)]="size" readonly aria-describedby="inputGroup-sizing-default">
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <app-data-table [tableData]="data" [tableOptions]="tableOptions"></app-data-table>
+  </div>
+</div>

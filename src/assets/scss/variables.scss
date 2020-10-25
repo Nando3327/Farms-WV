@@ -1,0 +1,43 @@
+// app specific variables
+:root {
+  /** primary **/
+  --app-color-primary: #032382;
+  --app-color-primary-rgb: 247, 247, 247;
+  --app-color-primary-contrast: #7abe3a;
+  --app-color-primary-contrast-rgb: 0, 43, 99;
+  --app-color-primary-shade: #A6A8AB;
+  --app-color-primary-tint: #F7F7F7;
+
+  /** secondary **/
+  --app-color-secondary: #7abe3a;
+  --app-color-secondary-rgb: 222, 0, 47;
+  --app-color-secondary-contrast: #032382;
+  --app-color-secondary-contrast-rgb: 222, 0, 47;
+  --app-color-secondary-shade: #A6A8AB;
+  --app-color-secondary-tint: #eaeaea;
+
+  /** tertiary **/
+  --app-color-tertiary: #06326e;
+  --app-color-tertiary-rgb: 0, 43, 99;
+  --app-color-tertiary-contrast: #F6B932;
+  --app-color-tertiary-contrast-rgb: 246, 185, 50;
+  --app-color-tertiary-shade: #A6A8AB;
+  --app-color-tertiary-tint: #eaeaea;
+
+  /** quaternary **/
+  --app-color-quaternary: #F6B932;
+  --app-color-quaternary-rgb: 246, 185, 50;
+  --app-color-quaternary-contrast: #F6B932;
+  --app-color-quaternary-contrast-rgb: 246, 185, 50;
+  --app-color-quaternary-shade: #E1E5EC;
+  --app-color-quaternary-tint: #eaeaea;
+
+  /** table colors **/
+  --app-color-table-border: #F7F7F7;
+  --app-color-table-strip-odd: #FFFFFF;
+  --app-color-table-strip-even: #F3F4F6;
+
+  --app-color-error: #C9302C;
+
+  --app-font-size-h3: 30px;
+}

@@ -1,0 +1,6 @@
+<app-pounds *ngIf="showDetails" [config]="params"></app-pounds>
+<div class="row" *ngIf="showDetails">
+  <div class="col-sm-12 text-center">
+    <button (click)="back()" type="submit" class="btn btn-secondary">{{globalLabels.buttons.return}}</button>
+  </div>
+</div>
