@@ -27,11 +27,11 @@ describe('FarmsComponent', () => {
         bdColor: 'rgba(0, 0, 0, 0.6)',
         color: 'white'
       }), DialogModule],
-      declarations: [ FarmsComponent ],
-      providers: [FarmsService, { provide: MAT_DIALOG_DATA, useValue: {} },
-        { provide: MatDialogRef, useValue: {} }, TranslateService]
+      declarations: [FarmsComponent],
+      providers: [FarmsService, {provide: MAT_DIALOG_DATA, useValue: {}},
+        {provide: MatDialogRef, useValue: {}}, TranslateService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

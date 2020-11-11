@@ -1,2 +1,2 @@
 export * from './components';
-export { PoundsFormDialogModule } from './poundsDialog.module';
+export { PoundsFormDialogModule } from './poundsFormDialog.module';

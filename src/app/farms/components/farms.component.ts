@@ -19,7 +19,7 @@ import { PoundsConfig } from '../../pounds/models/pounds.model';
 })
 export class FarmsComponent implements OnInit {
 
-  data: Array<any> = [];
+  data: Array<Farm> = [];
   showTable = false;
   tableOptions: DataTableOptionsModel;
 

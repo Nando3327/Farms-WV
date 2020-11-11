@@ -7,19 +7,19 @@ import { isNullOrEmpty } from '../../../general-functions/general-functions';
 @Component({
   selector: 'app-dialog-confirm',
   template: `
-      <div class="custom-dialog-detail">
-        <h1 mat-dialog-title>{{dialog.title}}</h1>
-        <div mat-dialog-content>
-          <p>{{dialog.message}}</p>
-        </div>
-        <div mat-dialog-actions class="pull-right">
-          <button *ngIf="!dialog.hideCancel" class="btn btn-secondary" style="margin-right: 5px;" mat-dialog-close (click)="handlerCancel()">
-            {{globalLabels.buttons.cancel}}
-          </button>
-          <button *ngFor="let button of dialog.options.buttons" autofocus
-                  class="btn btn-primary" mat-dialog-close (click)="button.handler()">{{button.label}}</button>
-        </div>
+    <div class="custom-dialog-detail">
+      <h1 mat-dialog-title>{{dialog.title}}</h1>
+      <div mat-dialog-content>
+        <p>{{dialog.message}}</p>
       </div>
+      <div mat-dialog-actions class="pull-right">
+        <button *ngIf="!dialog.hideCancel" class="btn btn-secondary" style="margin-right: 5px;" mat-dialog-close (click)="handlerCancel()">
+          {{globalLabels.buttons.cancel}}
+        </button>
+        <button *ngFor="let button of dialog.options.buttons" autofocus
+                class="btn btn-primary" mat-dialog-close (click)="button.handler()">{{button.label}}</button>
+      </div>
+    </div>
   `
 })
 export class DialogConfirmComponent implements DialogInterface, OnInit {

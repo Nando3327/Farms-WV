@@ -23,11 +23,11 @@ describe('PoundsFormComponent', () => {
         bdColor: 'rgba(0, 0, 0, 0.6)',
         color: 'white'
       })],
-      declarations: [ PoundsFormDialogComponent ],
-      providers: [ { provide: MAT_DIALOG_DATA, useValue: {} },
-        { provide: MatDialogRef, useValue: {} }, TranslateService]
+      declarations: [PoundsFormDialogComponent],
+      providers: [{provide: MAT_DIALOG_DATA, useValue: {}},
+        {provide: MatDialogRef, useValue: {}}, TranslateService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

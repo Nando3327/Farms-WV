@@ -9,7 +9,7 @@ import { DataColumnModel } from '../data-column/data-column.model';
 })
 
 export class DataCellComponent implements OnInit {
-  @ViewChild(DataCellDirective, { static: true }) cellHost: DataCellDirective;
+  @ViewChild(DataCellDirective, {static: true}) cellHost: DataCellDirective;
   @Input() column: DataColumnModel;
   @Input() row: object;
   @Input() mode: string;

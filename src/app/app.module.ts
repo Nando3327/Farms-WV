@@ -11,12 +11,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
 import { AppService } from './app.service';
-import { FarmsModule } from './farms/farms.module';
+import { FarmsModule } from './farms';
 import { SpinnerModule } from './spinner';
 import { DialogModule } from './dialog';
 
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, `../assets/i18n/`, '.json');
+  return new TranslateHttpLoader(http, `assets/i18n/`, '.json');
 }
 
 @NgModule({
@@ -39,9 +39,9 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     FormlyModule.forRoot({
       validationMessages: [
-        {name: 'required', message: 'Campo obligatorio'},
-        {name: 'email', message: 'Email incorrecto'},
-        {name: 'invalidDateFormat', message: 'Formato fecha invalido'},
+        {name: 'required', message: 'Required'},
+        {name: 'email', message: 'Wrong email'},
+        {name: 'invalidDateFormat', message: 'Invalid date format'},
       ],
     }),
     FormlyMaterialModule,
@@ -54,9 +54,10 @@ export function createTranslateLoader(http: HttpClient) {
     })
   ],
   providers: [
-    { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'fill'}},
     AppService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

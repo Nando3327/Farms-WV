@@ -1,5 +1,6 @@
 {
-  "welcome": "Bienvenido",
+  "welcome": "Bienvenido Granjero!!",
+  "welcomeMessage": "Ahora puede administrar tu granja, esto incluye crear, actualizar, eliminar o revisar los detalles de su granja",
   "global": {
     "errors": {
       "genericErrorMessage": "Ocurrieron errores técnicos, por favor intente mas tarde",
@@ -57,12 +58,12 @@
     "name": "Nombre de la granja",
     "namePh": "Ingrese el nombre de la granja",
     "table": {
-      "tittle": "Granjas",
+      "title": "Granjas",
       "name": "Nombre de la granja",
       "newFarm": "Nueva granja"
     },
     "messages": {
-      "poundsWithFarm": "Existen hectareas asociadas a su granja. Desea eliminarlas dee todos modos?",
+      "poundsWithFarm": "Existen estanques asociadas a su granja. Desea eliminarlas dee todos modos?",
       "deleteConfirm": "Esta seguro que desea eliminar el registro seleccionado?",
       "farmDeleted": "Se elimino la granja seleccionada",
       "farmCreated": "Granja guardada exitosamente",
@@ -71,24 +72,25 @@
     }
   },
   "pounds": {
-    "name": "Nombre de la hectarea",
-    "size": "Tamaño de la hectarea",
+    "name": "Nombre del estanque",
+    "size": "Tamaño del estanque",
     "farmSize": "Tamaño en hectareas",
     "farmName": "Nombre de la granja",
-    "namePh": "Ingrese el nombre de la hectarea",
-    "sizePh": "Ingrese el tamaño de la hectarea",
+    "namePh": "Ingrese el nombre del estanque",
+    "sizePh": "Ingrese el tamaño del estanque",
     "table": {
-      "tittle": "Hecareas",
-      "name": "Nombre de la hectarea",
-      "size": "Tamaño de la hectarea",
-      "newFarm": "Nueva hectarea"
+      "title": "Estanques",
+      "name": "Nombre del estanque",
+      "size": "Tamaño del estanque",
+      "newFarm": "Nuevo estanque"
     },
     "messages": {
-      "farmDeleted": "Se elimino la hectarea seleccionada",
+      "farmDeleted": "Se elimino el estanque seleccionado",
       "deleteConfirm": "Esta seguro que desea eliminar el registro seleccionado?",
-      "farmCreated": "hectarea guardada exitosamente",
-      "farmDuplicate": "El nombre de la hectarea ya existe",
-      "farmGenericErrorCreateUpdate": "No se pudo guardar el registro"
+      "farmCreated": "Estanque guardada exitosamente",
+      "farmDuplicate": "El nombre del estanque ya existe",
+      "farmGenericErrorCreateUpdate": "No se pudo guardar el registro",
+      "duplicatedValue": "Ya existe una estanque con ese nombre"
     }
   }
 }

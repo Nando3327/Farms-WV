@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DataCellInterface } from '../data-cell.interface';
 import { DataColumnModel } from '../../data-column/data-column.model';
 

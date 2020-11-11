@@ -10,5 +10,4 @@ export class DataTableOptionsModel {
   sortable?: boolean;
   showExportOptions?: boolean;
   hideCSVExportOptions?: boolean;
-  coinField ?: string;
 }

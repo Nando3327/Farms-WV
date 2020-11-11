@@ -1,9 +1,9 @@
-import { Type, OnInit } from '@angular/core';
+import { Type } from '@angular/core';
 import { DataCellTextComponent } from './types/data-cell-text.component';
 import { BehaviorSubject } from 'rxjs';
 
 export class DataCellService {
-  
+
   detailColumn$: BehaviorSubject<boolean>;
   private registeredCells: { [key: string]: Type<any>; } = {};
 

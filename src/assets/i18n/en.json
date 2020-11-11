@@ -1,5 +1,6 @@
 {
-  "welcome": "Welcome",
+  "welcome": "Welcome Farmer!!",
+  "welcomeMessage": "You can now manage your farm, this includes creating, updating, deleting or reviewing your farm details",
   "global": {
     "errors": {
       "genericErrorMessage": "Technical errors occurred, please try again later",
@@ -57,7 +58,7 @@
     "name": "Farm name",
     "namePh": "Enter the name of the farm",
     "table": {
-      "tittle": "Farms",
+      "title": "Farms",
       "name": "Farm name",
       "newFarm": "New farm"
     },
@@ -78,7 +79,7 @@
     "namePh": "Enter the name of the pond",
     "sizePh": "Enter the size of the pond",
     "table": {
-      "tittle": "Pond",
+      "title": "Ponds",
       "name": "Pond name",
       "size": "Pond size",
       "newFarm": "New pond"
@@ -88,7 +89,8 @@
       "deleteConfirm": "Are you sure you want to delete the selected record?",
       "farmCreated": "Pond saved successfully",
       "farmDuplicate": "The name of the pond already exists",
-      "farmGenericErrorCreateUpdate": "The record could not be saved"
+      "farmGenericErrorCreateUpdate": "The record could not be saved",
+      "duplicatedValue": "There is already a pond with that name"
     }
   }
 }

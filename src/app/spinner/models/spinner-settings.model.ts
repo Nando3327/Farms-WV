@@ -1,4 +1,4 @@
-import {Size} from 'ngx-spinner/lib/ngx-spinner.enum';
+import { Size } from 'ngx-spinner/lib/ngx-spinner.enum';
 
 export class SpinnerSettingsModel {
 

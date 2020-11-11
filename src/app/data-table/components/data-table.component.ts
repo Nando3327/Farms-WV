@@ -33,7 +33,7 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
   selection = new SelectionModel<any>(true, []);
   columns: string[];
   activeColumns: string[];
-  defaultPageSize: number = 10;
+  defaultPageSize = 10;
   defaultPageSizeOptions: number[] = [5, 10, 25, 50, 100];
   showDetailColumn: boolean;
   labels: any;
@@ -54,13 +54,14 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
     this.loadLabels();
   }
 
-  public _tableData: any[];
+  public TABLE_DATA: any[];
+
   @Input() set tableData(dataRows: any[]) {
-    this._tableData = dataRows;
+    this.TABLE_DATA = dataRows;
     if (this.dataSource) {
-      this.dataSource.data = this._tableData;
+      this.dataSource.data = this.TABLE_DATA;
     }
-  };
+  }
 
   @Input() execute: BehaviorSubject<any>;
 
@@ -70,7 +71,7 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize() {
     this.configureResizeView();
   }
 
@@ -80,9 +81,11 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
     });
     this.showTotals = (this.tableOptions.columns.filter(c => {
       return c.showTotal;
-    }).length > 0) && this._tableData.length > 1;
+    }).length > 0) && this.TABLE_DATA.length > 1;
     this.tableOptions.showExportOptions = isNullOrEmpty(this.tableOptions.showExportOptions) ? true : this.tableOptions.showExportOptions;
+    // tslint:disable-next-line:max-line-length
     this.tableOptions.hideCSVExportOptions = isNullOrEmpty(this.tableOptions.hideCSVExportOptions) ? false : this.tableOptions.hideCSVExportOptions;
+    // tslint:disable-next-line:max-line-length
     this.tableOptions.hideSelectFieldAll = isNullOrEmpty(this.tableOptions.hideSelectFieldAll) ? false : this.tableOptions.hideSelectFieldAll;
     if (this.tableOptions.selectField) {
       this.columns.unshift('select');
@@ -114,7 +117,7 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
   loadLabels(): void {
     this.translate.get(['table', 'global']).subscribe(labels => {
       this.globalLabels = labels.global;
-      this.labels = labels['table'];
+      this.labels = labels.table;
     });
   }
 
@@ -167,192 +170,6 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
     this.selectedRows.emit(this.selection.selected);
   }
 
-  // exportToExcel() {
-  //   this.excel.exportAsExcelFile(
-  //     this.createObjectToPrint(this.tableOptions.columns, this._tableData),
-  //     this.tableOptions.title
-  //   );
-  // }
-
-  // createTable(data) {
-  //   let arrData = typeof data !== 'object' ? JSON.parse(data) : data;
-  //   let CSV = '';
-  //   //1st loop is to extract each row
-  //   for (let i = 0; i < arrData.length; i++) {
-  //     let row = '';
-  //     //2nd loop will extract each column and convert it in string tab-seprated
-  //     for (let index in arrData[i]) {
-  //       row += arrData[i][index] + '    ';
-  //     }
-  //     row.slice(0, row.length - 1);
-  //     //add a line break after each row
-  //     CSV += row + '\r\n';
-  //   }
-  //   return CSV;
-  // }
-
-  // exportToCSV() {
-  //   let dataString = this.createTable(this.createObjectToPrint(this.tableOptions.columns, this._tableData));
-  //   let blob = new Blob(['\ufeff' + dataString], {
-  //     type: 'text/csv;charset=utf-8;'
-  //   });
-  //   let dwldLink = document.createElement('a');
-  //   let url = URL.createObjectURL(blob);
-  //   let isSafariBrowser = navigator.userAgent.indexOf(
-  //     'Safari') !== -1;
-  //   //if Safari open in new window to save file with random filename.
-  //   if (isSafariBrowser) {
-  //     dwldLink.setAttribute('target', '_blank');
-  //   }
-  //   dwldLink.setAttribute('href', url);
-  //   dwldLink.setAttribute('download', this.tableOptions.title + '.txt');
-  //   dwldLink.style.visibility = 'hidden';
-  //   document.body.appendChild(dwldLink);
-  //   dwldLink.click();
-  //   document.body.removeChild(dwldLink);
-  // }
-
-  // createObjectToPrint(columns, data) {
-  //   let retorno = [];
-  //   data.forEach(item => {
-  //     let rowName = '';
-  //     let row = {};
-  //     columns.forEach(column => {
-  //       if (!isNullOrEmpty(item[column['field']])) {
-  //         rowName = column['name'];
-  //         if (column.type === 'date' && column.options && column.options.dateFormat) {
-  //           row[rowName] = moment(item[column['field']]).format(column.options.dateFormat.toUpperCase());
-  //         } else {
-  //           row[rowName] = item[column['field']];
-  //         }
-  //       } else {
-  //         rowName = column['name'];
-  //         row[rowName] = '';
-  //       }
-  //     });
-  //     retorno.push(row);
-  //   });
-  //   return retorno;
-  // }
-
-  // createTableObject() {
-  //   const formatter = new Intl.NumberFormat('en-US', {
-  //     style: 'currency',
-  //     currency: 'USD',
-  //     minimumFractionDigits: 2
-  //   });
-  //
-  //   let headersName = [];
-  //   let rows = [];
-  //   let headers = this.tableOptions.columns.filter(el => ['select', 'actions'].indexOf(el.field) === -1);
-  //   headers.forEach(column => {
-  //     headersName.push(column['name']);
-  //   });
-  //   let body = [headersName];
-  //
-  //   this._tableData.forEach(item => {
-  //     let row = [];
-  //     headers.forEach(column => {
-  //       if (column.type === 'date' && column.options && column.options.dateFormat) {
-  //         item[column['field']] = moment(item[column['field']]).format(column.options.dateFormat.toUpperCase());
-  //       }
-  //       if (column.type === 'currency') {
-  //         row.push(formatter.format(item[column['field']]));
-  //       } else if (!isNullOrEmpty(item[column['field']])) {
-  //         row.push(item[column['field']].toString());
-  //       } else {
-  //         row.push('');
-  //       }
-  //
-  //     });
-  //     rows.push(row);
-  //   });
-  //   rows.forEach(row => {
-  //     body.push(row);
-  //   });
-  //   return body;
-  // }
-  //
-  // exportToPDF() {
-  //   let body = this.createTableObject();
-  //   const docDefinition = {
-  //     content: [
-  //       {
-  //         style: 'tableExample',
-  //         table: {
-  //           headerRows: 1,
-  //           body: body
-  //         },
-  //         layout: {
-  //           fillColor: function(rowIndex, node, columnIndex) {
-  //             return (rowIndex % 2 === 0) ? '#CCCCCC' : null;
-  //           }
-  //         }
-  //       }
-  //     ]
-  //   };
-  //   // pdfMake.createPdf(docDefinition).download();
-  // }
-
-  // printScreen() {
-  //   let d = new Date();
-  //   let curr_date = (d.getDate() + 1 < 10) ? '0' + (d.getDate()) : d.getDate().toString();
-  //   let curr_month = (d.getMonth() + 1 < 10) ? '0' + (d.getMonth() + 1) : (d.getMonth() + 1).toString(); //Months are zero based
-  //   let curr_year = d.getFullYear().toString();
-  //   let dateShow = curr_date + '/' + curr_month + '/' + curr_year;
-  //
-  //   const loaderConfig = this.layoutConfigService.getConfig('loader');
-  //   this.headerLogo = objectPath.get(loaderConfig, 'logo');
-  //
-  //   let template = '<div class="container">' +
-  //     '<div class="row">' +
-  //     '<div class="col-xs-6 col-sm-6">' +
-  //     '<h4 style="font-weight: bold">T&iacute;tulo: <span style="font-weight: normal">' + this.tableOptions.title + '</span></h4>' +
-  //     '<h4 style="font-weight: bold">Fecha: <span style="font-weight: normal">' + dateShow + '</span></h4>' +
-  //     '</div>' +
-  //     '<div class="col-xs-6 col-sm-6 text-right">' +
-  //     '<img src="' + this.headerLogo + '"/>' +
-  //     '</div>' +
-  //     '</div>' +
-  //     '</div>' +
-  //     '<hr>' +
-  //     '<br><br><br>';
-  //
-  //   let tableObject = this.createTableObject();
-  //
-  //   let head = document.createElement('div');
-  //   head.innerHTML = template;
-  //   let table = document.createElement('table');
-  //   let tableBody = document.createElement('tbody');
-  //   tableObject.forEach(function(rowData) {
-  //     let row = document.createElement('tr');
-  //     rowData.forEach(function(cellData) {
-  //       let cell = document.createElement('td');
-  //       cell.style.border = '1px solid #dddddd';
-  //       cell.style.border = '1px solid #dddddd;';
-  //       cell.appendChild(document.createTextNode(cellData));
-  //       row.appendChild(cell);
-  //     });
-  //
-  //     tableBody.appendChild(row);
-  //   });
-  //
-  //   table.appendChild(tableBody);
-  //
-  //   let divprint = document.createElement('div');
-  //   divprint.style.display = 'none';
-  //   divprint.classList.add('visible-print');
-  //   divprint.appendChild(head);
-  //   divprint.appendChild(table);
-  //   window.document.body.appendChild(divprint);
-  //
-  //   setTimeout(function() {
-  //     window.print();
-  //     window.document.body.removeChild(divprint);
-  //   }, 1000);
-  //
-  // }
-
   /** The label for the checkbox on the passed row */
   checkboxLabel(row?: any): string {
     if (!row) {
@@ -365,7 +182,7 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
 
   getRowsByScreenSize(): Array<string> {
     const winSize = getWindowSize();
-    const applyBreakpoints = this.tableOptions.columns.find(c => !isNullOrEmpty(c.breakpoints)) ? true : false;
+    const applyBreakpoints = this.tableOptions.columns.find(c => !isNullOrEmpty(c.breakpoints));
     const columns = Object.assign([], this.columns);
     if (winSize.width < 768) {
       if (applyBreakpoints) {
@@ -416,10 +233,12 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
         break;
       }
       case 'sm': {
+        // tslint:disable-next-line:max-line-length
         this.tableOptions.columns.filter(c => c.breakpoints === '' || c.breakpoints === 'xs' || c.breakpoints === 'xs sm').forEach(c => columns.push(c.field));
         break;
       }
       case 'md': {
+        // tslint:disable-next-line:max-line-length
         this.tableOptions.columns.filter(c => c.breakpoints === '' || c.breakpoints === 'xs' || c.breakpoints === 'xs sm' || c.breakpoints === 'xs sm md').forEach(c => columns.push(c.field));
         break;
       }
@@ -442,7 +261,7 @@ export class DataTableComponent implements OnInit, OnDestroy, AfterViewInit {
     this.dialog.open(DataTableDetailComponent, {
       width: '80%',
       height: '90%',
-      data: {row: row, options: this.tableOptions},
+      data: {row, options: this.tableOptions},
       id: 'data-table-detail-row'
     });
   }

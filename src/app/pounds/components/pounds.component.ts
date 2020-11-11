@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataTableOptionsModel } from '../../data-table/components';
-import { FormGroup } from '@angular/forms';
-import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { PoundsService } from '../pounds.service';
 import { Pounds, PoundsConfig, PoundsSearch } from '../models/pounds.model';
 import { TranslateService } from '@ngx-translate/core';
@@ -20,7 +18,7 @@ import { isNullOrEmpty } from '../../general-functions/general-functions';
 export class PoundsComponent implements OnInit {
 
   @Input() config: PoundsConfig;
-  data: Array<any> = [];
+  data: Array<Pounds> = [];
   showTable = false;
   tableOptions: DataTableOptionsModel;
 
@@ -146,7 +144,8 @@ export class PoundsComponent implements OnInit {
       width: '80%',
       data: {
         mode: 'edit',
-        model: item
+        model: item,
+        items: this.data
       }
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -160,7 +159,8 @@ export class PoundsComponent implements OnInit {
     const dialogRef = this.dialogMaterial.open(PoundsFormDialogComponent, {
       width: '80%',
       data: {
-        mode: 'add'
+        mode: 'add',
+        items: this.data
       }
     });
     dialogRef.afterClosed().subscribe(result => {

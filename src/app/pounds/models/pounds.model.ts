@@ -5,10 +5,12 @@ export class Pounds {
   Name: string;
   Size: number;
 }
+
 export class PoundsConfig {
   farm: Farm;
   showActions: boolean;
 }
+
 export class PoundsSearch {
   pounds: Array<Pounds>;
   size: number;

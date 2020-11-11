@@ -1,3 +1,12 @@
 <div class="container" *ngIf="showData">
+  <div class="row">
+    <div class="col-sm-12 text-center text-title-farms">
+      <h1>{{labels.welcome}}</h1>
+    </div>
+    <div class="col-sm-12 text-center">
+      <label>{{labels.welcomeMessage}}</label>
+    </div>
+  </div>
+  <br>
   <router-outlet></router-outlet>
 </div>

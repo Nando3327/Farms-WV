@@ -15,7 +15,7 @@ const routes: Route[] = [
     path: '',
     component: PoundsDialogComponent,
   },
-  { path: '', redirectTo: '', pathMatch: 'full' }
+  {path: '', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({

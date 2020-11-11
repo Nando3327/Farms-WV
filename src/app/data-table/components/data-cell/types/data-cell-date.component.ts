@@ -10,7 +10,7 @@ export class DataCellDateComponent implements DataCellInterface, OnInit {
   @Input() column: DataColumnModel;
   @Input() row: object;
 
-  dateFormat: string = 'dd/MM/yyyy';
+  dateFormat = 'dd/MM/yyyy';
 
   ngOnInit(): void {
     if (this.column.options) {

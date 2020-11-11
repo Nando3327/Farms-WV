@@ -1,5 +1,5 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { SpinnerSettingsModel } from './models/spinner-settings.model';
+import { SpinnerSettingsModel } from './models';
 import { NgxSpinnerComponent, NgxSpinnerModule } from 'ngx-spinner';
 import { SpinnerContentComponent } from './components/spinner-content.component';
 import { SpinnerService } from './services/spinner.service';
@@ -22,8 +22,8 @@ export class SpinnerModule {
     return ({
       ngModule: SpinnerModule,
       providers: [
-      { provide: SpinnerSettingsModel, useValue: settingModel }
-    ]
+        {provide: SpinnerSettingsModel, useValue: settingModel}
+      ]
     });
   }
 }

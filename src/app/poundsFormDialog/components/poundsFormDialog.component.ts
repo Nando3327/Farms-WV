@@ -1,9 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { PoundsConfig } from '../../pounds/models/pounds.model';
+import { Pounds, PoundsConfig } from '../../pounds/models/pounds.model';
 import { TranslateService } from '@ngx-translate/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
+import { isNullOrEmpty } from '../../general-functions/general-functions';
+import { DialogBuildService } from '../../dialog/components';
 
 @Component({
   selector: 'app-pounds-form-dialog',
@@ -22,14 +24,18 @@ export class PoundsFormDialogComponent implements OnInit {
   options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[];
 
+  items: Array<Pounds>;
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
               private translate: TranslateService,
+              private dialog: DialogBuildService,
               public dialogRef: MatDialogRef<PoundsFormDialogComponent>) {
   }
 
   ngOnInit(): void {
     this.loadLabels();
     this.model = (this.data && this.data.mode === 'edit') ? {...this.data.model} : {};
+    this.items = this.data.items;
     this.params = {
       farm: {
         Name: this.data.Name,
@@ -79,7 +85,8 @@ export class PoundsFormDialogComponent implements OnInit {
               setTimeout(field => {
                 console.log(field);
                 if (this.form.value.Size.toString().indexOf('.')) {
-                  const decimalSize = this.form.value.Size.toString().split('.')[1].length;
+                  // tslint:disable-next-line:max-line-length
+                  const decimalSize = (this.form.value.Size.toString().split('.')[1]) ? this.form.value.Size.toString().split('.')[1].length : 0;
                   if (decimalSize > 2) {
                     this.form.controls.Size.setValue(valueToSet);
                   }
@@ -92,8 +99,28 @@ export class PoundsFormDialogComponent implements OnInit {
     }];
   }
 
+  showDialogDuplicateName(): void {
+    this.dialog.buildDialog({
+      message: this.labels.messages.duplicatedValue
+    });
+  }
+
   submitPound() {
     if (this.validateForm()) {
+      if (this.items.length > 0) {
+        const itemInArrayToSave = this.items.find(it => {
+          return it.Name === this.model.Name.trim();
+        });
+        if (!isNullOrEmpty(itemInArrayToSave)) {
+          if (this.data.mode === 'edit' && itemInArrayToSave.Id !== this.model.Id) {
+            this.showDialogDuplicateName();
+            return;
+          } else if (this.data.mode !== 'edit') {
+            this.showDialogDuplicateName();
+            return;
+          }
+        }
+      }
       this.dialogRef.close({
         model: this.model
       });

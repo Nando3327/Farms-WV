@@ -47,11 +47,11 @@ export class DataTableModule {
   constructor(
     private readonly dataCellService: DataCellService
   ) {
-    dataCellService.registerCell('date', DataCellDateComponent );
-    dataCellService.registerCell('currency', DataCellCurrencyComponent );
-    dataCellService.registerCell('percent', DataCellPercentComponent );
-    dataCellService.registerCell('link', DataCellLinkComponent );
-    dataCellService.registerCell('badge', DataCellBadgeComponent );
-    dataCellService.registerCell('actions', DataCellActionsComponent );
+    dataCellService.registerCell('date', DataCellDateComponent);
+    dataCellService.registerCell('currency', DataCellCurrencyComponent);
+    dataCellService.registerCell('percent', DataCellPercentComponent);
+    dataCellService.registerCell('link', DataCellLinkComponent);
+    dataCellService.registerCell('badge', DataCellBadgeComponent);
+    dataCellService.registerCell('actions', DataCellActionsComponent);
   }
 }

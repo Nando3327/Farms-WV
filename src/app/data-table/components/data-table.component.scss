@@ -1,20 +1,35 @@
 .mat-column-detail {
-    flex: 0 0 15px;
-    padding: 0 !important;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    z-index: 1 !important;
+  flex: 0 0 15px;
+  padding: 0 !important;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1 !important;
 
-    mat-icon {
-        margin-top: 8px;
-    }
+  mat-icon {
+    margin-top: 8px;
+  }
 }
 
 .data-table-align-right {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .data-table-mat-cell {
-    word-break: break-all;
+  word-break: break-all;
+}
+
+.border-table {
+  border: 1px solid var(--app-color-primary);
+  border-radius: 20px;
+}
+
+.title-col {
+  margin-bottom: 5px;
+  background: #7f7f7f4d;
+  border-radius: 20px 20px 0 0;
+}
+
+.title-text-table {
+  margin: 8px 0 8px 0;
 }

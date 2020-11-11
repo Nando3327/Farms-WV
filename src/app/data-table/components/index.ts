@@ -32,7 +32,6 @@ export const CELL_DIRECTIVES = [
 ];
 
 
-
 export * from './data-table.component';
 export * from './data-cell/data-cell.component';
 export * from './data-cell/types/data-cell-text.component';

@@ -9,7 +9,7 @@ import { FormlyMaterialModule } from '@ngx-formly/material';
 import { Route, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PoundsService } from './pounds.service';
-import { PoundsFormDialogModule } from '../poundsFormDialog/poundsFormDialog.module';
+import { PoundsFormDialogModule } from '../poundsFormDialog';
 import { PoundsFormDialogComponent } from '../poundsFormDialog/components';
 
 const routes: Route[] = [
@@ -17,7 +17,7 @@ const routes: Route[] = [
     path: '',
     component: PoundsComponent,
   },
-  { path: '', redirectTo: '', pathMatch: 'full' }
+  {path: '', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({

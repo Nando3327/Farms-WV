@@ -1,6 +1,11 @@
-<div class="container-fluid m-y-20">
+<div class="container-fluid m-y-20 border-table">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 text-center title-col">
+      <h1 class="title-text-table">{{tableOptions.title}}</h1>
+    </div>
+  </div>
   <div class="row data-table-filter">
-    <div class="col-xs-6 col-sm-6" [hidden]="_tableData.length === 0">
+    <div class="col-xs-6 col-sm-6" [hidden]="TABLE_DATA.length === 0">
       <mat-form-field appearance="legacy" class="col-sm-12">
         <input
           matInput
@@ -11,19 +16,27 @@
         <mat-hint>{{ labels.search.hint }}</mat-hint>
       </mat-form-field>
     </div>
-    <div class="text-right" [ngClass]="(_tableData.length === 0) ? 'col-xs-12 col-sm-12': 'col-xs-6 col-sm-6'" [hidden]="!tableOptions.buttons">
-      <button mat-icon-button [matMenuTriggerFor]="tableButtons">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #tableButtons="matMenu">
-        <button
-          *ngFor="let button of tableOptions.buttons"
-          mat-menu-item
-          (click)="button.handler()"
-        >
+    <div class="text-right" [ngClass]="(TABLE_DATA.length === 0) ? 'col-xs-12 col-sm-12': 'col-xs-6 col-sm-6'"
+         [hidden]="!tableOptions.buttons">
+      <div *ngIf="tableOptions.buttons.length > 1">
+        <button mat-icon-button [matMenuTriggerFor]="tableButtons">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #tableButtons="matMenu">
+          <button
+            *ngFor="let button of tableOptions.buttons"
+            mat-menu-item
+            (click)="button.handler()"
+          >
+            {{ button.name }}
+          </button>
+        </mat-menu>
+      </div>
+      <div *ngIf="tableOptions.buttons.length <= 1">
+        <button class="btn btn-primary" *ngFor="let button of tableOptions.buttons" (click)="button.handler()">
           {{ button.name }}
         </button>
-      </mat-menu>
+      </div>
     </div>
   </div>
 
@@ -70,11 +83,11 @@
           [disabled]="
                 column.field === 'actions' ||
                 (column.options && column.options.sort === false)"
-          class="data-table-align-left"
+          [ngClass]="{'data-table-align-right' : column.field === 'actions', 'data-table-align-left' : column.field !== 'actions'}"
         >
           <span class="text-left">{{ column.name }}</span>
         </mat-header-cell>
-        <mat-cell *matCellDef="let row" class="data-table-mat-cell data-table-align-left">
+        <mat-cell *matCellDef="let row" class="data-table-mat-cell data-table-align-left" [ngClass]="{'data-table-align-right' : column.field === 'actions', 'data-table-align-left' : column.field !== 'actions'}">
           <app-data-cell [row]="row" [column]="column" [mode]="'normal'"></app-data-cell>
         </mat-cell>
       </ng-container>
@@ -92,24 +105,15 @@
       <mat-header-row *matHeaderRowDef="activeColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: activeColumns"></mat-row>
     </mat-table>
-    <div class="mat-table__message" *ngIf="_tableData.length === 0">
+    <div class="mat-table__message" *ngIf="TABLE_DATA.length === 0">
       {{labels.msg.noRecordsFound}}
     </div>
-    <!--        <div class="mat-table__message" *ngIf="dataSource.isPreloadTextViewed$ | async">Please wait....</div>-->
   </div>
   <div class="mat-table__bottom">
-    <!--        <mat-spinner [diameter]="20" *ngIf="dataSource.$loading"></mat-spinner>-->
     <mat-paginator
       [pageSize]="defaultPageSize"
       [pageSizeOptions]="defaultPageSizeOptions"
       showFirstLastButtons
     ></mat-paginator>
   </div>
-
-  <!--      <div class="mat-table__bottom">-->
-  <!--        <app-resume-table class="col-sm-6"  *ngIf="showTotals" [data]="_tableData" [columns]="tableOptions.columns" [coinField]="tableOptions.coinField"></app-resume-table>-->
-  <!--      </div>-->
-
-  <!--    </kt-portlet-body>-->
-  <!--  </kt-portlet>-->
 </div>
