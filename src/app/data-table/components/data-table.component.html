@@ -18,7 +18,7 @@
     </div>
     <div class="text-right" [ngClass]="(TABLE_DATA.length === 0) ? 'col-xs-12 col-sm-12': 'col-xs-6 col-sm-6'"
          [hidden]="!tableOptions.buttons">
-      <div *ngIf="tableOptions.buttons.length > 1">
+      <div *ngIf="tableOptions.buttons && tableOptions.buttons.length > 1">
         <button mat-icon-button [matMenuTriggerFor]="tableButtons">
           <mat-icon>more_vert</mat-icon>
         </button>
@@ -32,7 +32,7 @@
           </button>
         </mat-menu>
       </div>
-      <div *ngIf="tableOptions.buttons.length <= 1">
+      <div *ngIf="tableOptions.buttons && tableOptions.buttons.length <= 1">
         <button class="btn btn-primary" *ngFor="let button of tableOptions.buttons" (click)="button.handler()">
           {{ button.name }}
         </button>
